@@ -24,7 +24,7 @@ Below you can find some of the apps I have built in Pyton.Feel free to contact m
 """
 st.write(content2)
 
-col3, col4 = st.columns(2)
+col3, col4 = st.columns(2, gap='large')
 
 
 df = pandas.read_csv("data.csv", sep=';')
@@ -32,8 +32,13 @@ df = pandas.read_csv("data.csv", sep=';')
 with col3:
     for index, rows in df[:10].iterrows():
         st.header(rows['title'])
+        st.write(rows['description'])
+        st.image("images/" + rows['image'])
+        st.write(f"[Source Code]({rows['url']})")
 
 with col4:
     for index, rows in df[10:].iterrows():
         st.header(rows['title'])
-
+        st.write(rows['description'])
+        st.image("images/" + rows['image'])
+        st.write(f"[Source Code]({rows['url']})")
